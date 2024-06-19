@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <title>Password Generator</title>
+</head>
+
+<body class="flex">
+  <div class="main">
+    <h2>Pass Generator</h2>
+    <div class="wrapper">
+      <div class="input-box">
+        <input type="text" disabled id="main-input">
+        <span class="material-symbols-rounded">copy_all</span>
+      </div>
+      <div class="pass-indicator"></div>
+      <div class="pass-length">
+        <div class="details">
+          <label class="title">Password Length</label>
+          <span id="passNum">15</span>
+        </div>
+        <input type="range" min="1" max="30" value="15" step="1">
+      </div>
+      <div class="pass-settings">
+        <label class="title">Password Settings</label>
+        <ul class="options">
+          <li class="option">
+            <input type="checkbox" id="lowercase" checked>
+            <label class="lowercase">Lowercase (a-z)</label>
+          </li>
+          <li class="option">
+            <input type="checkbox" id="uppercase">
+            <label class="upperCase">UpperCase (A-Z)</label>
+          </li>
+          <li class="option">
+            <input type="checkbox" id="numbers">
+            <label class="numbers">Numbers (0-9)</label>
+          </li>
+          <li class="option">
+            <input type="checkbox" id="symbols">
+            <label class="symbols">Symbols (!-$^+)</label>
+          <li class="option">
+            <input type="checkbox" id="exc-dublicates">
+            <label class="exc-dublicates">Exclude Duplicate</label>
+          </li>
+          <li class="option">
+            <input type="checkbox" id="spaces">
+            <label class="spaces">Include Spaces</label>
+          </li>
+        </ul>
+      </div>
+
+      <button class="generate-btn">PASSWORD GENERATE</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
