@@ -43,14 +43,53 @@ const generatePassword = () => {
 };
 
 const copyPassword = () => {
-  navigator.clipboard.writeText(passwordInput.value)
-  copyIcon.innerText = "check";
-  copyIcon.style.color = "#4285f4";
-  setTimeout(() => {
-    copyIcon.innerText = "copy_all";
-    copyIcon.style.color = "#848282"
-  },1500)
+  // Try using the Clipboard API first
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(passwordInput.value).then(() => {
+      copyIcon.innerText = "check";
+      copyIcon.style.color = "#4285f4";
+      setTimeout(() => {
+        copyIcon.innerText = "copy_all";
+        copyIcon.style.color = "#848282";
+      }, 1500);
+    }).catch(err => {
+      // If Clipboard API fails, fallback to execCommand
+      fallbackCopyTextToClipboard(passwordInput.value);
+    });
+  } else {
+    // Use the fallback if Clipboard API is not available
+    fallbackCopyTextToClipboard(passwordInput.value);
+  }
 };
+
+const fallbackCopyTextToClipboard = (text) => {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+
+  // Avoid scrolling to bottom
+  textArea.style.position = "fixed";
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand('copy');
+    copyIcon.innerText = "check";
+    copyIcon.style.color = "#4285f4";
+    setTimeout(() => {
+      copyIcon.innerText = "copy_all";
+      copyIcon.style.color = "#848282";
+    }, 1500);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+};
+
 
 const updatepassIndicator = () => {
   passIndicator.id = lengthSlider.value <= 8 ? "weak" : lengthSlider.value <= 16 ? "medium" : lengthSlider.value <= 25 ? "medium-strong" : "strong";

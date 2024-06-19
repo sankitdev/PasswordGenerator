@@ -58,6 +58,8 @@ h2 {
   right: 12px;
   line-height: 50px;
   color: #848282;
+  cursor: pointer;
+  user-select: none;
 }
 
 .input-box span:hover {
@@ -179,26 +181,26 @@ h2 {
   }
 
   h2 {
-    padding: 1.2rem 1.5rem;
-    font-size: 2.5rem;
+    padding: 1rem 1.2rem;
+    font-size: 2rem;
     border-bottom: 1px solid #aaa;
   }
   .wrapper {
     position: relative;
-    height: 86vh;
+    height: calc(100vh - 16%);
 
   }
   .input-box input {
-    margin: 0.3rem 0;
-    height: 70px;
-    font-size: 1.4rem;
+    margin: 0.2rem 0;
+    height: 60px;
+    font-size: 1rem;
   }
   .input-box span {
-    font-size: 1.7rem;
-    line-height: 70px;
+    font-size: 1.6rem;
+    line-height: 60px;
   }
   .wrapper .pass-length {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
   .title,#passNum{
     font-size: 1.5rem;
@@ -211,22 +213,23 @@ h2 {
     position: absolute;
     bottom: 0px;
     font-size: 1.3rem;
-    padding: 1.3rem 0;
+    padding: 1.2rem 0;
   }
 
   .pass-settings .options .option {
     display: flex;
     align-items: normal;
     width: 100%;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .option label {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .options .option input {
-    height: 22px;
-    width: 22px;
+    margin-top: 2px;
+    height: 18px;
+    width: 18px;
     cursor: pointer;
   }
 }
