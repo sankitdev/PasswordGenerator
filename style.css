@@ -19,11 +19,11 @@ body {
   min-height: 100vh;
   background-color: rgb(1, 96, 115);
   font-family: "Poppins";
-  padding: 0 1.5rem;
+  /* padding: 0 1.5rem; */
 }
 
 .main {
-  min-width: 450px;
+  width: 450px;
   min-height: 480px;
   background-color: white;
   border-radius: 10px;
@@ -61,7 +61,7 @@ h2 {
 }
 
 .input-box span:hover {
-  color: #43a047;
+  color: #005CC8;
 }
 
 .wrapper .pass-indicator {
@@ -144,7 +144,7 @@ h2 {
 
 .options .option label {
   cursor: pointer;
-  color: #4f4f4f;
+  /* color: #4f4f4f; */
   padding-left: 0.63rem;
 }
 
@@ -169,4 +169,64 @@ h2 {
 
 .generate-btn:active {
   transform: translateY(5px);
+}
+
+@media (max-width:800px){
+  .main{
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  h2 {
+    padding: 1.2rem 1.5rem;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #aaa;
+  }
+  .wrapper {
+    position: relative;
+    height: 86vh;
+
+  }
+  .input-box input {
+    margin: 0.3rem 0;
+    height: 70px;
+    font-size: 1.4rem;
+  }
+  .input-box span {
+    font-size: 1.7rem;
+    line-height: 70px;
+  }
+  .wrapper .pass-length {
+    margin: 2rem 0;
+  }
+  .title,#passNum{
+    font-size: 1.5rem;
+  }
+  .pass-length input {
+    margin-top: 10px;
+    height: 10px;
+  }
+  .wrapper .generate-btn {
+    position: absolute;
+    bottom: 0px;
+    font-size: 1.3rem;
+    padding: 1.3rem 0;
+  }
+
+  .pass-settings .options .option {
+    display: flex;
+    align-items: normal;
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  .option label {
+    font-size: 1.4rem;
+  }
+  .options .option input {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+  }
 }
